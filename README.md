@@ -1,81 +1,85 @@
-# React time tracking [![CircleCI](https://circleci.com/gh/tuanngominh/react-time-tracking.svg?style=svg)](https://circleci.com/gh/tuanngominh/react-time-tracking) [![codecov](https://codecov.io/gh/tuanngominh/react-time-tracking/branch/master/graph/badge.svg)](https://codecov.io/gh/tuanngominh/react-time-tracking)
+Setup todo:
+- [x] Create React App.
+- [x] Prettier, lint on commit with husky ([link](https://create-react-app.dev/docs/setting-up-your-editor/#formatting-code-automatically)).
+- [x] Setup github CI
+- [x] Firebase's auth for user management and authentication
+- [ ] Replace Firebase Real time db with Firebase Firestore db
+- [ ] Unit test
+- [ ] e2e test with cypress
+- [ ] Storybook
 
-Time tracking app on React, try [demo](https://vivid-trace.firebaseapp.com/).
 
-The app is inspired by [toggl.com](https://toggl.com).
+Setup guide:
+- Generate react app: `npx create-react-app react-time-tracking`
+- Add auth with firebase: `yarn add react-firebaseui firebase` ([reference](https://github.com/firebase/firebaseui-web-react))
+---
 
-# Tech stack
-Web application based on React (clientside) and Firebase (serverside)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- Clientside UI libraries: [material ui](http://material-ui.com), [flexboxgrid](http://flexboxgrid.com/) layout, [formsy](https://github.com/christianalfoni/formsy-react) form validation, [chartjs](http://www.chartjs.org) chart
-- State management: redux, redux thunk, reselect
-- Unit test: jest + enzyme
+## Available Scripts
 
-# Features
-Authentication
-- [x] Signup using email/password
+In the project directory, you can run:
 
-Time entry
-- [x] Can add time entry
-- [x] Can track time spent on time entry and stop a time entry tracking
-- [x] Can list time entries
-- [x] Delete time entry
-- [x] Report
+### `yarn start`
 
-Tag
-- [x] Add tag to time entry
-- CRUD tag
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-# Demo
-Try demo at [https://vivid-trace.firebaseapp.com/](https://vivid-trace.firebaseapp.com/) and [storybook](https://tuanngominh.github.io/react-time-tracking/)
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-[![React time tracking demo](https://cloud.githubusercontent.com/assets/2210733/23502781/a0795b00-ff6b-11e6-9f97-f42f7a5c9661.png)](https://www.youtube.com/watch?v=zXlkU7Qjp6Q&fmt=22 "React time tracking demo")
+### `yarn test`
 
-# Developer notes
-## Enzyme
-Simulate `onClick` event in `shallow` ([github](https://github.com/airbnb/enzyme/issues/323#issuecomment-210039710))
-```js
-const componentWrapper = shallow(<Component />)
-componentWrapper.simulate('click', { preventDefault() {} })
-```
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Simulate change event in [material-ui's TextField](http://www.material-ui.com/#/components/text-field) ([github](https://github.com/airbnb/enzyme/issues/364#issuecomment-217475038))
-```js
-const input = wrapper.find('input[name="text"]')
-input.node.value = "newvalue"
-input.simulate('change', input)
-```
+### `yarn build`
 
-## Sass and create-react-app
-[Enable guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Material UI 0.16.7
-Click on button in a Table's Row without select that row ([github](https://github.com/callemall/material-ui/issues/4535#issuecomment-231375019))
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-Doesn't support responsive ([github](https://github.com/callemall/material-ui/issues/3614#issuecomment-235568806))
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Storybook 
-Use [storyshots](https://github.com/storybooks/storyshots) to enable unit test. Need install story book addon packages and babel preset
+### `yarn eject`
 
-Add `.babelrc` to project's root directory
-```json
-{
-  "presets": ["babel-preset-es2015", "react-app"]
-}
-```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Install packages
-```sh
-npm install storyshots @kadira/storybook-addons @kadira/storybook-channel --save-dev
-npm install babel-core babel-preset-es2015 babel-preset-react-app --save-dev
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Add `src/__tests__/Storyshots.test.js`:
-```js
-import initStoryshots from 'storyshots'
-initStoryshots()
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Explicitly add [material ui](http://material-ui.com) component id so Jest snapshot test doesn't get failed because of auto generated id
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Run `npm test`
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+

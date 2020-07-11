@@ -1,0 +1,28 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# misc
+.DS_Store
+.env
+npm-debug.log
+
+# jest snapshot file AS material-ui component's generated id 
+#     break snapshot compare everytime even without code change 
+**/__snapshots__/
+
+# github.com/kadirahq/storybook-deployer temp folder
+/out*
+
+# only store SASS file in source control
+src/**/*.css
+
+# npm debug log
+npm-debug.*
